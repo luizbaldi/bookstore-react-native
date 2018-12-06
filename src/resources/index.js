@@ -1,3 +1,2 @@
-import Colors from './styles/Colors'
-
-export default { Colors }
+export { default as Colors } from './Colors'
+export { default as Images } from './Images'
