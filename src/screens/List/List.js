@@ -2,33 +2,73 @@
 
 /* libs */
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { View, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux'
 
 /* helpers */
+import { fetchBooks } from '../../redux/actions'
+import { Colors } from '../../resources'
+import { prepareThumbnailSource } from '../../utils/booksUtils'
 
 /* components */
 import Header from '../../components/Header'
-import ToggleMenu from '../../components/ToggleMenu'
+import HeaderMenu from '../../components/HeaderMenu'
+import HeaderSearch from '../../components/HeaderSearch'
 
 /* styled-components */
-import { Container } from './style'
+import { Container, LoadingContainer, BookImage, BookButton } from './style'
 
 class List extends Component<*> {
 
   static navigationOptions = () => ({
     headerTitle: <Header title='List' />,
-    headerLeft: <ToggleMenu />,
-    headerRight: <View />
+    headerLeft: <HeaderMenu />,
+    headerRight: <HeaderSearch />
   })
 
+  componentDidMount () {
+    this.props.fetchBooks()
+  }
+
+  renderBook = ({ item: book }) => (
+    <BookButton
+      activeOpacity={0.6}
+    >
+      <BookImage source={prepareThumbnailSource(book)} />
+    </BookButton>
+  )
+
+  renderLoadingContainer = () => (
+    <LoadingContainer>
+      <ActivityIndicator size='large' color={Colors.white} />
+    </LoadingContainer>
+  )
+
+  renderBooksList = (books: Array<Book>) => (
+    <FlatList
+      data={books}
+      keyExtractor={(item: Book) => item.id}
+      renderItem={this.renderBook}
+      numColumns={3}
+    />
+  )
+
   render () {
+    const { loading, items } = this.props
     return (
       <Container>
-        <Text>Bookstore list</Text>
+        {loading
+          ? this.renderLoadingContainer()
+          : this.renderBooksList(items)
+        }
       </Container>
     )
   }
 
 }
 
-export default List
+const mapStateToProps = ({ books: { loading, items } }) => ({ loading, items })
+
+export default connect(
+  mapStateToProps, { fetchBooks }
+)(List)

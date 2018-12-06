@@ -10,10 +10,10 @@ import { Images } from '../../resources'
 /* styled-components */
 import { Container } from './style'
 
-const MenuToggle = () => (
+const HeaderMenu = () => (
   <Container>
     <Image source={Images.menu} />
   </Container>
 )
 
-export default MenuToggle
+export default HeaderMenu

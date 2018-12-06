@@ -4,7 +4,7 @@
 import React from 'react'
 
 /* styled-components */
-import { Container, Title } from './style'
+import { Container, Title, Divider } from './style'
 
 type Props = {
   title: string
@@ -13,6 +13,7 @@ type Props = {
 const HeaderTitle = ({ title }: Props) => (
   <Container>
     <Title>{title}</Title>
+    <Divider />
   </Container>
 )
 

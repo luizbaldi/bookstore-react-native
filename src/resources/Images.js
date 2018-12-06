@@ -2,7 +2,8 @@
 
 const Images = {
   icon: require('./images/icon.png'),
-  menu: require('./images/icoMenu.png')
+  menu: require('./images/icoMenu.png'),
+  search: require('./images/icoSearch.png'),
 }
 
 export default Images

@@ -14,5 +14,13 @@ export const Title = styled.Text`
   color: ${Colors.textColor};
   fontSize: 14;
   letterSpacing: -0.34;
-  textAlign: center
+  textAlign: center;
+`
+
+export const Divider = styled.View`
+  height: 2;
+  background-color: ${Colors.darkYellow};
+  width: 40%;
+  position: absolute;
+  bottom: 0;
 `

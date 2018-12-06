@@ -23,8 +23,8 @@ const defaultNavigationOptions = {
 
 const Container = createAppContainer(
   createStackNavigator({
-    home: { screen: Home },
     list: { screen: List },
+    home: { screen: Home },
   }, { defaultNavigationOptions })
 )
 
