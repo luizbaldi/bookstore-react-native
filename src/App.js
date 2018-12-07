@@ -11,6 +11,7 @@ import { store } from './redux'
 /* screens */
 import Home from './screens/Home'
 import List from './screens/List'
+import Detail from './screens/Detail'
 
 const defaultNavigationOptions = {
   headerStyle: {
@@ -23,8 +24,9 @@ const defaultNavigationOptions = {
 
 const Container = createAppContainer(
   createStackNavigator({
-    list: { screen: List },
     home: { screen: Home },
+    list: { screen: List },
+    detail: { screen: Detail },
   }, { defaultNavigationOptions })
 )
 

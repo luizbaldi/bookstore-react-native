@@ -33,6 +33,7 @@ class List extends Component<*> {
   renderBook = ({ item: book }) => (
     <BookButton
       activeOpacity={0.6}
+      onPress={() => this.props.navigation.navigate('detail', { book })}
     >
       <BookImage source={prepareThumbnailSource(book)} />
     </BookButton>

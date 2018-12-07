@@ -13,7 +13,6 @@ export const Container = styled.View`
 export const Title = styled.Text`
   color: ${Colors.textColor};
   fontSize: 14;
-  letterSpacing: -0.34;
   textAlign: center;
 `
 

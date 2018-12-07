@@ -10,3 +10,19 @@ export const prepareThumbnailSource = (book: Book): ImageSource => {
 
   return { uri: formattedUrl }
 }
+
+export const getAuthors = (authors: Array<string>): string => {
+  if (authors.length) {
+    return `by ${authors.join(' and ')}`
+  }
+
+  return 'by Nobody (yup seems like nobody wrote this book)'
+}
+
+export const getPrice = (book: Book): string => {
+  if (book.saleInfo.saleability === 'FOR_SALE') {
+    return `$ ${book.saleInfo.listPrice.amount}`
+  }
+
+  return '$ 0.00'
+}
