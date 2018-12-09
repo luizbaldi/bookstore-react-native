@@ -2,11 +2,11 @@
 
 /* libs */
 import React, { Component } from 'react'
-import { View, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native'
+import { ActivityIndicator, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
 /* helpers */
-import { fetchBooks } from '../../redux/actions'
+import { fetchBooks, refreshSearch } from '../../redux/actions'
 import { Colors } from '../../resources'
 import { prepareThumbnailSource } from '../../utils/booksUtils'
 
@@ -16,7 +16,14 @@ import HeaderMenu from '../../components/HeaderMenu'
 import HeaderSearch from '../../components/HeaderSearch'
 
 /* styled-components */
-import { Container, LoadingContainer, BookImage, BookButton } from './style'
+import {
+  Container,
+  LoadingContainer,
+  BookImage,
+  BookButton,
+  CurrentSearch,
+  LoadingLabel
+} from './style'
 
 class List extends Component<*> {
 
@@ -30,6 +37,17 @@ class List extends Component<*> {
     this.props.fetchBooks()
   }
 
+  onRefreshSearch = () => {
+    const book = this.props.currentSearch
+    this.props.refreshSearch(book)
+  }
+
+  renderCurrentSearch = () => (
+    <CurrentSearch>
+      Current search: {this.props.currentSearch}
+    </CurrentSearch>
+  )
+
   renderBook = ({ item: book }) => (
     <BookButton
       activeOpacity={0.6}
@@ -41,7 +59,8 @@ class List extends Component<*> {
 
   renderLoadingContainer = () => (
     <LoadingContainer>
-      <ActivityIndicator size='large' color={Colors.white} />
+      <LoadingLabel>Loading books...</LoadingLabel>
+      <ActivityIndicator size='large' color={Colors.grey} />
     </LoadingContainer>
   )
 
@@ -51,14 +70,18 @@ class List extends Component<*> {
       keyExtractor={(item: Book) => item.id}
       renderItem={this.renderBook}
       numColumns={3}
+      onRefresh={this.onRefreshSearch}
+      refreshing={this.props.refreshLoading}
     />
   )
 
   render () {
     const { loading, items } = this.props
+
     return (
       <Container>
-        {loading
+        {!loading && this.renderCurrentSearch()}
+        {(loading)
           ? this.renderLoadingContainer()
           : this.renderBooksList(items)
         }
@@ -68,8 +91,12 @@ class List extends Component<*> {
 
 }
 
-const mapStateToProps = ({ books: { loading, items } }) => ({ loading, items })
+const mapStateToProps = (
+  { books: { loading, items, currentSearch, refreshLoading } }
+) => (
+  { loading, items, currentSearch, refreshLoading }
+)
 
 export default connect(
-  mapStateToProps, { fetchBooks }
+  mapStateToProps, { fetchBooks, refreshSearch }
 )(List)

@@ -1,9 +1,17 @@
-import { FETCH_BOOKS, FETCH_ERROR, SHOW_BOOKS } from '../actions/types'
+import {
+  FETCH_BOOKS,
+  FETCH_ERROR,
+  SHOW_BOOKS,
+  SET_CURRENT_SEARCH,
+  SET_REFRESH_LOADING
+} from '../actions/types'
 
 const initialState = {
   loading: false,
   error: false,
-  items: []
+  items: [],
+  currentSearch: '',
+  refreshLoading: false
 }
 
 const booksReducer = (state = initialState, { type, payload }) => {
@@ -14,7 +22,11 @@ const booksReducer = (state = initialState, { type, payload }) => {
     case FETCH_ERROR:
       return { ...state, error: true }
     case SHOW_BOOKS:
-      return { ...state, items: payload, loading: false }
+      return { ...state, items: payload, loading: false, refreshLoading: false }
+    case SET_CURRENT_SEARCH:
+      return { ...state, currentSearch: payload }
+    case SET_REFRESH_LOADING:
+      return { ...state, refreshLoading: true }
     default:
       return state
   }

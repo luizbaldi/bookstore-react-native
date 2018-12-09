@@ -5,8 +5,8 @@ import { getUrlWithKey, extractData } from '../utils/apiutils'
 
 const baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
 
-const searchBooks = (search: string = 'the hitchhikers guide'): Promise<Object> => {
-  const url = getUrlWithKey(`${baseUrl}${search}`)
+const searchBooks = (search: string): Promise<Object> => {
+  const url = getUrlWithKey(`${baseUrl}${search}&maxResults=15`)
 
   return axios.get(url)
     .then(extractData)

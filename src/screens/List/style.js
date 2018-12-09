@@ -30,3 +30,16 @@ export const BookButton = styled.TouchableOpacity`
   margin-horizontal: 10;
   marginVertical: 12;
 `
+
+export const CurrentSearch = styled.Text`
+  padding-horizontal: 10;
+  padding-bottom: 4;
+  font-size: 10;
+  color: ${Colors.grey};
+  font-style: italic;
+`
+
+export const LoadingLabel = styled.Text`
+  color: ${Colors.grey};
+  margin-bottom: 16;
+`
