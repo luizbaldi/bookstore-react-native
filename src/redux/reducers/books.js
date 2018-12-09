@@ -15,7 +15,6 @@ const initialState = {
 }
 
 const booksReducer = (state = initialState, { type, payload }) => {
-  console.log({ type, payload })
   switch (type) {
     case FETCH_BOOKS:
       return { ...state, loading: true }

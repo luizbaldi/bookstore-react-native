@@ -65,7 +65,7 @@ class Detail extends Component<*> {
             <StarRating>
               <Stars
                 half={false}
-                default={1}
+                default={4}
                 update={val => { console.log(val) }}
                 spacing={3}
                 count={5}

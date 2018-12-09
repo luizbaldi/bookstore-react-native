@@ -92,6 +92,7 @@ export const DescriptionText = styled.Text`
   font-size: 12;
   letter-spacing: 1.2;
   line-height: 20;
+  margin-bottom: 30;
 `
 
 export const TotalPages = styled.Text`
