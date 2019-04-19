@@ -1,42 +1,36 @@
 {
-  "name": "bookstore-react-native",
+  "name": "bookstoreReactNative",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "react": "16.6.1",
-    "react-native": "^0.57.7",
-    "react-native-gesture-handler": "^1.0.10",
+    "react": "16.8.3",
+    "react-native": "0.59.5",
+    "react-native-gesture-handler": "^1.1.0",
     "react-native-stars": "^1.1.5",
-    "react-navigation": "^3.0.5",
-    "react-redux": "^6.0.0",
+    "react-navigation": "^3.8.1",
+    "react-redux": "^7.0.2",
     "redux": "^4.0.1",
-    "redux-saga": "^0.16.2",
-    "styled-components": "^4.1.2"
+    "redux-saga": "^1.0.2",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "babel-eslint": "9.x",
-    "babel-jest": "23.6.0",
-    "eslint": "5.x",
-    "eslint-config-react-app": "^3.0.5",
-    "eslint-plugin-flowtype": "2.x",
-    "eslint-plugin-import": "2.x",
-    "eslint-plugin-jsx-a11y": "6.x",
-    "eslint-plugin-react": "7.x",
-    "flow-bin": "^0.87.0",
-    "jest": "23.6.0",
-    "react-test-renderer": "16.6.1"
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "babel-jest": "^24.7.1",
+    "eslint": "^5.16.0",
+    "eslint-config-react-app": "^3.0.8",
+    "flow-bin": "0.92.0",
+    "jest": "^24.7.1",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
-    "preset": "react-native",
-    "transformIgnorePatterns": [ "node_modules/(?!react-native|react-navigation)/" ],
-    "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
-    }
+    "preset": "react-native"
   }
 }
