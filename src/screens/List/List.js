@@ -17,12 +17,12 @@ import HeaderSearch from '../../components/HeaderSearch'
 
 /* styled-components */
 import {
-  Container,
-  LoadingContainer,
-  BookImage,
-  BookButton,
-  CurrentSearch,
-  LoadingLabel
+  StyledContainer,
+  StyledLoadingContainer,
+  StyledBookImage,
+  StyledBookButton,
+  StyledCurrentSearch,
+  StyledLoadingLabel
 } from './style'
 
 class List extends Component<*> {
@@ -43,25 +43,27 @@ class List extends Component<*> {
   }
 
   renderCurrentSearch = () => (
-    <CurrentSearch>
+    <StyledCurrentSearch>
       Current search: {this.props.currentSearch}
-    </CurrentSearch>
+    </StyledCurrentSearch>
   )
 
   renderBook = ({ item: book }) => (
-    <BookButton
+    <StyledBookButton
       activeOpacity={0.6}
       onPress={() => this.props.navigation.navigate('detail', { book })}
     >
-      <BookImage source={prepareThumbnailSource(book)} />
-    </BookButton>
+      <StyledBookImage source={prepareThumbnailSource(book)} />
+    </StyledBookButton>
   )
 
   renderLoadingContainer = () => (
-    <LoadingContainer>
-      <LoadingLabel>Loading books...</LoadingLabel>
+    <StyledLoadingContainer>
+      <StyledLoadingLabel>
+        Loading books...
+      </StyledLoadingLabel>
       <ActivityIndicator size='large' color={Colors.grey} />
-    </LoadingContainer>
+    </StyledLoadingContainer>
   )
 
   renderBooksList = (books: Array<Book>) => (
@@ -79,13 +81,13 @@ class List extends Component<*> {
     const { loading, items } = this.props
 
     return (
-      <Container>
+      <StyledContainer>
         {!loading && this.renderCurrentSearch()}
-        {(loading)
+        {loading
           ? this.renderLoadingContainer()
           : this.renderBooksList(items)
         }
-      </Container>
+      </StyledContainer>
     )
   }
 

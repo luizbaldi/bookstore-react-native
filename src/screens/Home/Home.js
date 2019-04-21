@@ -11,7 +11,7 @@ import { Images } from '../../resources'
 import Button from '../../components/Button'
 
 /* styled-components */
-import { Container, Icon } from './style'
+import { StyledContainer, StyledIcon } from './style'
 
 class Home extends Component<*> {
 
@@ -21,14 +21,14 @@ class Home extends Component<*> {
 
   render () {
     return (
-      <Container>
+      <StyledContainer>
         <Text>Super Mega Blaster Amazing Bookstore</Text>
-        <Icon source={Images.icon} />
+        <StyledIcon source={Images.icon} />
         <Button
           label="Let's start!"
           onPress={() => this.props.navigation.navigate('list')}
         />
-      </Container>
+      </StyledContainer>
     )
   }
 

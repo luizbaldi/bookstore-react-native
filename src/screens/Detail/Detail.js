@@ -16,23 +16,23 @@ import Button from '../../components/Button'
 
 /* styled-components */
 import {
-  Container,
-  DetailContainer,
-  DetailInfo,
-  ThumbnailContainer,
-  ThumbnailImage,
-  Title,
-  Author,
-  PriceAndRating,
-  ContentContainer,
-  DetailFooter,
-  PagesContainer,
-  PurchaseContainer,
-  DescriptionContainer,
-  DescriptionText,
-  TotalPages,
-  StarRating,
-  LikeButton
+  StyledContainer,
+  StyledDetailContainer,
+  StyledDetailInfo,
+  StyledThumbnailContainer,
+  StyledThumbnailImage,
+  StyledTitle,
+  StyledAuthor,
+  StyledPriceAndRating,
+  StyledContentContainer,
+  StyledDetailFooter,
+  StyledPagesContainer,
+  StyledPurchaseContainer,
+  StyledDescriptionContainer,
+  StyledDescriptionText,
+  StyledTotalPages,
+  StyledStarRating,
+  StyledLikeButton
 } from './style'
 
 class Detail extends Component<*> {
@@ -43,26 +43,28 @@ class Detail extends Component<*> {
   })
 
   renderHeaderDetail = (book: Book) => (
-    <DetailContainer>
-      <DetailInfo>
-        <ThumbnailContainer>
-          <ThumbnailImage source={prepareThumbnailSource(book)} />
-        </ThumbnailContainer>
-        <ContentContainer>
+    <StyledDetailContainer>
+      <StyledDetailInfo>
+        <StyledThumbnailContainer>
+          <StyledThumbnailImage source={prepareThumbnailSource(book)} />
+        </StyledThumbnailContainer>
+        <StyledContentContainer>
           <View>
-            <Title>
+            <StyledTitle>
               {book.volumeInfo.title}
-            </Title>
-            <Author>{getAuthors(book.volumeInfo.authors)}</Author>
+            </StyledTitle>
+            <StyledAuthor>
+              {getAuthors(book.volumeInfo.authors)}
+            </StyledAuthor>
           </View>
-          <PriceAndRating>
-            <Title>
+          <StyledPriceAndRating>
+            <StyledTitle>
               {book.saleInfo.saleability === 'FOR_SALE'
                 ? getPrice(book)
                 : 'Unavailable'
               }
-            </Title>
-            <StarRating>
+            </StyledTitle>
+            <StyledStarRating>
               <Stars
                 half={false}
                 default={4}
@@ -73,48 +75,49 @@ class Detail extends Component<*> {
                 fullStar={Images.startFilled}
                 emptyStar={Images.startEmpty}
               />
-            </StarRating>
-          </PriceAndRating>
-        </ContentContainer>
-      </DetailInfo>
-      <DetailFooter>
-        <PagesContainer>
-          <TotalPages>
+            </StyledStarRating>
+          </StyledPriceAndRating>
+        </StyledContentContainer>
+      </StyledDetailInfo>
+      <StyledDetailFooter>
+        <StyledPagesContainer>
+          <StyledTotalPages>
             {Boolean(book.volumeInfo.pageCount)
               ? `${book.volumeInfo.pageCount} pages`
               : 'Pages not informed'
             }
-          </TotalPages>
-        </PagesContainer>
-        <PurchaseContainer>
+          </StyledTotalPages>
+        </StyledPagesContainer>
+        <StyledPurchaseContainer>
           <Button label='Buy' small />
-          <LikeButton>
+          <StyledLikeButton>
             <Button
               icon={Images.hearth}
               backgroundColor={Colors.red}
               small
             />
-          </LikeButton>
-        </PurchaseContainer>
-      </DetailFooter>
-    </DetailContainer>
+          </StyledLikeButton>
+        </StyledPurchaseContainer>
+      </StyledDetailFooter>
+    </StyledDetailContainer>
   )
 
   renderDescription = ({ volumeInfo: { description } }: Book) => (
-    <DescriptionContainer>
-      <DescriptionText>{description}</DescriptionText>
-    </DescriptionContainer>
+    <StyledDescriptionContainer>
+      <StyledDescriptionText>
+        {description}
+      </StyledDescriptionText>
+    </StyledDescriptionContainer>
   )
 
   render () {
     const book = this.props.navigation.getParam('book', {})
-    console.log(book)
 
     return (
-      <Container>
+      <StyledContainer>
         {this.renderHeaderDetail(book)}
         {this.renderDescription(book)}
-      </Container>
+      </StyledContainer>
     )
   }
 
