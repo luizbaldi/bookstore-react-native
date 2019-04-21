@@ -1,3 +1,1 @@
-import HeaderSearch from './HeaderSearch'
-
-export default HeaderSearch
+export { default } from './HeaderSearch'

@@ -1,3 +1,1 @@
-import HeaderBackButton from './HeaderBackButton'
-
-export default HeaderBackButton
+export { default } from './HeaderBackButton'
