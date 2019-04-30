@@ -1,8 +1,9 @@
 /* @flow */
 
 /* libs */
-import React, { Component } from 'react'
+import React, { useCallback } from 'react'
 import { Text } from 'react-native'
+import { NavigationScreenProps } from 'react-navigation'
 
 /* helpers */
 import { Images } from '../../resources'
@@ -13,25 +14,27 @@ import Button from '../../components/Button'
 /* styled-components */
 import { StyledContainer, StyledIcon } from './style'
 
-class Home extends Component<*> {
+type Props = NavigationScreenProps
 
-  static navigationOptions = {
-    header: null
-  }
+const Home = ({ navigation }: Props) => {
+  const onStartPress = useCallback(() => {
+    navigation.navigate('list')
+  }, [])
 
-  render () {
-    return (
-      <StyledContainer>
-        <Text>Super Mega Blaster Amazing Bookstore</Text>
-        <StyledIcon source={Images.icon} />
-        <Button
-          label="Let's start!"
-          onPress={() => this.props.navigation.navigate('list')}
-        />
-      </StyledContainer>
-    )
-  }
+  return (
+    <StyledContainer>
+      <Text>Super Mega Blaster Amazing Bookstore</Text>
+      <StyledIcon source={Images.icon} />
+      <Button
+        label="Let's start!"
+        onPress={onStartPress}
+      />
+    </StyledContainer>
+  )
+}
 
+Home.navigationOptions = {
+  header: null
 }
 
 export default Home
