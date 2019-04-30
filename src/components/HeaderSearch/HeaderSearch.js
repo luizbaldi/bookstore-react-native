@@ -1,8 +1,8 @@
 /* @flow */
 
 /* libs */
-import React, { Component } from 'react'
-import { Image, AlertIOS } from 'react-native'
+import React, { useCallback } from 'react'
+import { Image, Alert } from 'react-native'
 import { connect } from 'react-redux'
 
 /* helpers */
@@ -12,23 +12,25 @@ import { fetchBooks } from '../../redux/actions'
 /* styled-components */
 import { Container } from './style'
 
-class HeaderSearch extends Component<*> {
+type Props = {
+  fetchBooks: (book: string | null) => void
+}
 
-  onPress = () => {
-    AlertIOS.prompt(
+const HeaderSearch = ({ fetchBooks }: Props) => {
+
+  const onPress = useCallback(() => {
+    Alert.prompt(
       'Search new books',
       'Type your search below:',
-      text => this.props.fetchBooks(text)
+      text => fetchBooks(text)
     )
-  }
+  }, [])
 
-  render () {
-    return (
-      <Container onPress={this.onPress}>
-        <Image source={Images.search} />
-      </Container>
-    )
-  }
+  return (
+    <Container onPress={onPress}>
+      <Image source={Images.search} />
+    </Container>
+  )
 }
 
 export default connect(null, { fetchBooks })(HeaderSearch)
