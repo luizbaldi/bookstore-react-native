@@ -3,7 +3,7 @@
 /* libs */
 import React, { useEffect, useCallback } from 'react'
 import { ActivityIndicator, FlatList } from 'react-native'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { NavigationScreenProps } from 'react-navigation'
 
 /* helpers */
@@ -25,23 +25,20 @@ import {
   StyledLoadingLabel
 } from './style'
 
-type Props = {
-  loading: boolean,
-  items: Array<Book>,
-  navigation: NavigationScreenProps,
-  refreshSearch: (book: string) => void,
-  currentSearch: string,
-  fetchBooks: (book?: string) => void,
-  refreshLoading: boolean
-}
+type Props = NavigationScreenProps & {}
 
-const List = ({ refreshLoading, fetchBooks, currentSearch, refreshSearch, loading, items, navigation }: Props) => {
+const List = ({ navigation }: Props) => {
+  const { loading, items, currentSearch, refreshLoading } = useSelector(({ books }) => books)
+  const dispatch = useDispatch()
+
+  console.log({ loading, items, currentSearch, refreshLoading });
+
   useEffect(() => {
-    fetchBooks()
+    dispatch(fetchBooks())
   }, [])
 
   const onRefreshSearch = useCallback(() => {
-    refreshSearch(currentSearch)
+    dispatch(refreshSearch(currentSearch))
   }, [currentSearch])
 
   return (
@@ -81,12 +78,4 @@ List.navigationOptions = () => ({
   headerRight: <HeaderSearch />
 })
 
-const mapStateToProps = (
-  { books: { loading, items, currentSearch, refreshLoading } }
-) => (
-  { loading, items, currentSearch, refreshLoading }
-)
-
-export default connect(
-  mapStateToProps, { fetchBooks, refreshSearch }
-)(List)
+export default List
