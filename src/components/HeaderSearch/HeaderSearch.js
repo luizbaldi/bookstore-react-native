@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 
 /* helpers */
 import { Images } from '../../resources'
-import { fetchBooks } from '../../redux/actions'
+import { fetchBooks } from '../../redux/actions/books'
 
 /* styled-components */
 import { Container } from './style'

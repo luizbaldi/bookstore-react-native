@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavigationScreenProps } from 'react-navigation'
 
 /* helpers */
-import { fetchBooks, refreshSearch } from '../../redux/actions'
+import { fetchBooks, refreshSearch } from '../../redux/actions/books'
 import { Colors } from '../../resources'
 
 /* components */
@@ -30,8 +30,6 @@ type Props = NavigationScreenProps & {}
 const List = ({ navigation }: Props) => {
   const { loading, items, currentSearch, refreshLoading } = useSelector(({ books }) => books)
   const dispatch = useDispatch()
-
-  console.log({ loading, items, currentSearch, refreshLoading });
 
   useEffect(() => {
     dispatch(fetchBooks())
