@@ -7,13 +7,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavigationScreenProps } from 'react-navigation'
 
 /* helpers */
-import { fetchBooks, refreshSearch } from '../../redux/actions/books'
-import { Colors } from '../../resources'
+import { fetchBooks, refreshSearch } from '@/redux/actions/books'
+import { Colors } from '@/resources'
 
 /* components */
-import Header from '../../components/Header'
-import HeaderMenu from '../../components/HeaderMenu'
-import HeaderSearch from '../../components/HeaderSearch'
+import { Header, HeaderMenu, HeaderSearch } from '@/components'
 
 import BookItem from './components/BookItem'
 

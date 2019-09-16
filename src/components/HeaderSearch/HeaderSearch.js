@@ -6,11 +6,11 @@ import { Image, Alert } from 'react-native'
 import { useDispatch } from 'react-redux'
 
 /* helpers */
-import { Images } from '../../resources'
-import { fetchBooks } from '../../redux/actions/books'
+import { Images } from '@/resources'
+import { fetchBooks } from '@/redux/actions/books'
 
 /* styled-components */
-import { Container } from './style'
+import { StyledContainer } from './style'
 
 const HeaderSearch = () => {
   const dispatch = useDispatch()
@@ -24,9 +24,9 @@ const HeaderSearch = () => {
   }, [])
 
   return (
-    <Container onPress={onPress}>
+    <StyledContainer onPress={onPress}>
       <Image source={Images.search} />
-    </Container>
+    </StyledContainer>
   )
 }
 

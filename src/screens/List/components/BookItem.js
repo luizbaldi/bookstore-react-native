@@ -4,8 +4,9 @@ import React from 'react'
 import { withNavigation } from 'react-navigation'
 import { NavigationScreenProps } from 'react-navigation'
 
+import { prepareThumbnailSource } from '@/utils/booksUtils'
+
 import { StyledBookButton, StyledBookImage } from '../style'
-import { prepareThumbnailSource } from '../../../utils/booksUtils'
 
 type Props = {
   book: Book,

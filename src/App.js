@@ -4,10 +4,10 @@ import React from 'react'
 
 /* redux */
 import { Provider } from 'react-redux'
-import configureStore from './redux/store'
+import configureStore from '@/redux/store'
 
 /* root navigator */
-import RootNavigator from './navigation'
+import RootNavigator from '@/navigation'
 
 const store = configureStore()
 

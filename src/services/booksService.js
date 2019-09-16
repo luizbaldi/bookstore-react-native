@@ -1,7 +1,8 @@
 /* @flow */
 
 import axios from 'axios'
-import { getUrlWithKey, extractData } from '../utils/apiutils'
+
+import { getUrlWithKey, extractData } from '@/utils/apiutils'
 
 const baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
 

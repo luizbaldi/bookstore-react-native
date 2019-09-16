@@ -1,5 +1,10 @@
 {
   "extends": ["react-app"],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
   "rules": {
     "semi": [2, "never"],
     "react/prop-types": ["error", { "ignore": ["navigation"] }]

@@ -5,14 +5,17 @@ type ImageSource = {
 }
 
 export const prepareThumbnailSource = (book: Book): ImageSource => {
+  if (!book.volumeInfo.imageLinks) return { uri: '' }
+
   const url = book.volumeInfo.imageLinks.thumbnail
+
   const formattedUrl = `https${url.substr(4)}`
 
   return { uri: formattedUrl }
 }
 
 export const getAuthors = (authors: Array<string>): string => {
-  if (authors.length) {
+  if (authors?.length) {
     return `by ${authors.join(' and ')}`
   }
 

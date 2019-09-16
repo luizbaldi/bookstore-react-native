@@ -6,7 +6,7 @@ import { Image } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
 /* helpers */
-import { Images } from '../../resources'
+import { Images } from '@/resources'
 
 /* styled-components */
 import { Container } from './style'

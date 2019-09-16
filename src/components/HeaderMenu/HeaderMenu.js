@@ -5,7 +5,7 @@ import React from 'react'
 import { Image } from 'react-native'
 
 /* helpers */
-import { Images } from '../../resources'
+import { Images } from '@/resources'
 
 /* styled-components */
 import { Container } from './style'

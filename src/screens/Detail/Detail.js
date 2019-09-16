@@ -5,8 +5,7 @@ import React from 'react'
 import { NavigationScreenProps } from 'react-navigation'
 
 /* components */
-import Header from '../../components/Header'
-import HeaderBackButton from '../../components/HeaderBackButton'
+import { Header, HeaderBackButton } from '@/components'
 
 import HeaderDetail from './components/HeaderDetail'
 import Description from './components/Description'

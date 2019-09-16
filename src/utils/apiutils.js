@@ -1,4 +1,4 @@
-import { apiKey } from '../services/keys.json'
+import { apiKey } from '@/services/keys.json'
 
 /* utils file - all methods MUST be pure */
 export const extractData = ({ data }) => data

@@ -1,7 +1,8 @@
 /* @flow */
 import styled from 'styled-components/native'
 import Stars from 'react-native-stars'
-import { Colors } from '../../resources'
+
+import { Colors } from '@/resources'
 
 export const StyledContainer = styled.View`
   flex: 1;

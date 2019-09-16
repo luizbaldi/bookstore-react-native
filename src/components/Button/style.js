@@ -1,6 +1,6 @@
 /* @flow */
 import styled from 'styled-components/native'
-import { Colors } from '../../resources'
+import { Colors } from '@/resources'
 
 export const Container = styled.TouchableOpacity`
   padding-horizontal: ${({ iconOnly }) => iconOnly ? 6 : 35};

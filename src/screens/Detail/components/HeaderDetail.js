@@ -4,11 +4,11 @@ import { View } from 'react-native'
 import Stars from 'react-native-stars'
 
 /* helpers */
-import { Images, Colors } from '../../../resources'
-import { prepareThumbnailSource, getAuthors, getPrice } from '../../../utils/booksUtils'
+import { Images, Colors } from '@/resources'
+import { prepareThumbnailSource, getAuthors, getPrice } from '@/utils/booksUtils'
 
 /* components */
-import Button from '../../../components/Button'
+import { Button } from '@/components'
 
 /* styled-components */
 import {

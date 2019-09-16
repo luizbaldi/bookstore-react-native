@@ -1,14 +1,17 @@
 import React from 'react'
 import { ActivityIndicator } from 'react-native'
+
+import { Colors } from '@/resources'
+
 import { Container, Label, Content, Icon } from './style'
-import { Colors } from '../../resources'
 
 type Props = {
   label: string,
   onPress(): void,
   loading: boolean,
   small: boolean,
-  icon: string
+  icon: string,
+  backgroundColor: string
 }
 
 const Button = ({ label, onPress, loading, small, icon, backgroundColor }: Props) => {

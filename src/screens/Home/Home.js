@@ -9,7 +9,7 @@ import { NavigationScreenProps } from 'react-navigation'
 import { Images } from '../../resources'
 
 /* components */
-import Button from '../../components/Button'
+import { Button } from '@/components'
 
 /* styled-components */
 import { StyledContainer, StyledIcon } from './style'
