@@ -1,19 +1,19 @@
 /* @flow */
 
 /* libs */
-import React, { useEffect, useCallback } from 'react'
-import { ActivityIndicator, FlatList } from 'react-native'
-import { useSelector, useDispatch } from 'react-redux'
-import { NavigationScreenProps } from 'react-navigation'
+import React, { useEffect, useCallback } from 'react';
+import { ActivityIndicator, FlatList } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavigationScreenProps } from 'react-navigation';
 
 /* helpers */
-import { fetchBooks, refreshSearch } from '@/redux/actions/books'
-import { Colors } from '@/resources'
+import { fetchBooks, refreshSearch } from '@/redux/actions/books';
+import { Colors } from '@/resources';
 
 /* components */
-import { Header, HeaderMenu, HeaderSearch } from '@/components'
+import { Header, HeaderMenu, HeaderSearch } from '@/components';
 
-import BookItem from './components/BookItem'
+import BookItem from './components/BookItem';
 
 /* styled-components */
 import {
@@ -21,21 +21,23 @@ import {
   StyledLoadingContainer,
   StyledCurrentSearch,
   StyledLoadingLabel
-} from './style'
+} from './style';
 
-type Props = NavigationScreenProps & {}
+type Props = NavigationScreenProps & {};
 
 const List = ({ navigation }: Props) => {
-  const { loading, items, currentSearch, refreshLoading } = useSelector(({ books }) => books)
-  const dispatch = useDispatch()
+  const { loading, items, currentSearch, refreshLoading } = useSelector(
+    ({ books }) => books
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBooks())
-  }, [])
+    dispatch(fetchBooks());
+  }, []);
 
   const onRefreshSearch = useCallback(() => {
-    dispatch(refreshSearch(currentSearch))
-  }, [currentSearch])
+    dispatch(refreshSearch(currentSearch));
+  }, [currentSearch]);
 
   return (
     <StyledContainer>
@@ -44,34 +46,29 @@ const List = ({ navigation }: Props) => {
           Current search: {currentSearch}
         </StyledCurrentSearch>
       )}
-      {loading
-        ? (
-          <StyledLoadingContainer>
-            <StyledLoadingLabel>
-              Loading books...
-            </StyledLoadingLabel>
-            <ActivityIndicator size='large' color={Colors.grey} />
-          </StyledLoadingContainer>
-        )
-        : (
-          <FlatList
-            data={items}
-            keyExtractor={(item: Book) => item.id}
-            renderItem={({ item }) => <BookItem book={item} />}
-            numColumns={3}
-            onRefresh={onRefreshSearch}
-            refreshing={refreshLoading}
-          />
-        )
-      }
+      {loading ? (
+        <StyledLoadingContainer>
+          <StyledLoadingLabel>Loading books...</StyledLoadingLabel>
+          <ActivityIndicator size='large' color={Colors.grey} />
+        </StyledLoadingContainer>
+      ) : (
+        <FlatList
+          data={items}
+          keyExtractor={(item: Book) => item.id}
+          renderItem={({ item }) => <BookItem book={item} />}
+          numColumns={3}
+          onRefresh={onRefreshSearch}
+          refreshing={refreshLoading}
+        />
+      )}
     </StyledContainer>
-  )
-}
+  );
+};
 
 List.navigationOptions = () => ({
   headerTitle: <Header title='List' />,
   headerLeft: <HeaderMenu />,
   headerRight: <HeaderSearch />
-})
+});
 
-export default List
+export default List;

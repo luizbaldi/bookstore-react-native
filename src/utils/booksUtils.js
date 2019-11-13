@@ -2,30 +2,30 @@
 
 type ImageSource = {
   uri: string
-}
+};
 
 export const prepareThumbnailSource = (book: Book): ImageSource => {
-  if (!book.volumeInfo.imageLinks) return { uri: '' }
+  if (!book.volumeInfo.imageLinks) return { uri: '' };
 
-  const url = book.volumeInfo.imageLinks.thumbnail
+  const url = book.volumeInfo.imageLinks.thumbnail;
 
-  const formattedUrl = `https${url.substr(4)}`
+  const formattedUrl = `https${url.substr(4)}`;
 
-  return { uri: formattedUrl }
-}
+  return { uri: formattedUrl };
+};
 
 export const getAuthors = (authors: Array<string>): string => {
   if (authors?.length) {
-    return `by ${authors.join(' and ')}`
+    return `by ${authors.join(' and ')}`;
   }
 
-  return 'by Nobody (yup seems like nobody wrote this book)'
-}
+  return 'by Nobody (yup seems like nobody wrote this book)';
+};
 
 export const getPrice = (book: Book): string => {
   if (book.saleInfo.saleability === 'FOR_SALE') {
-    return `$ ${book.saleInfo.listPrice.amount}`
+    return `$ ${book.saleInfo.listPrice.amount}`;
   }
 
-  return '$ 0.00'
-}
+  return '$ 0.00';
+};

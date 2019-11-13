@@ -1,17 +1,16 @@
 // @flow
 
-import React from 'react'
-import { withNavigation } from 'react-navigation'
-import { NavigationScreenProps } from 'react-navigation'
+import React from 'react';
+import { withNavigation, NavigationScreenProps } from 'react-navigation';
 
-import { prepareThumbnailSource } from '@/utils/booksUtils'
+import { prepareThumbnailSource } from '@/utils/booksUtils';
 
-import { StyledBookButton, StyledBookImage } from '../style'
+import { StyledBookButton, StyledBookImage } from '../style';
 
 type Props = {
   book: Book,
   navigation: NavigationScreenProps
-}
+};
 
 const BookItem = ({ book, navigation }: Props) => (
   <StyledBookButton
@@ -20,6 +19,6 @@ const BookItem = ({ book, navigation }: Props) => (
   >
     <StyledBookImage source={prepareThumbnailSource(book)} />
   </StyledBookButton>
-)
+);
 
-export default withNavigation(BookItem)
+export default withNavigation(BookItem);

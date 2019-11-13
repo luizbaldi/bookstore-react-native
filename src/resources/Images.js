@@ -8,6 +8,6 @@ const Images = {
   startEmpty: require('./images/icoStarEmpty.png'),
   startFilled: require('./images/icoStarFilled.png'),
   hearth: require('./images/icoHearth.png')
-}
+};
 
-export default Images
+export default Images;

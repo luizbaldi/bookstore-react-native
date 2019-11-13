@@ -1,11 +1,11 @@
-import { createStackNavigator, createAppContainer } from "react-navigation"
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import { Colors } from "@/resources"
+import { Colors } from '@/resources';
 
 /* screens */
-import Home from "@/screens/Home"
-import List from "@/screens/List"
-import Detail from "@/screens/Detail"
+import Home from '@/screens/Home';
+import List from '@/screens/List';
+import Detail from '@/screens/Detail';
 
 const defaultNavigationOptions = {
   headerStyle: {
@@ -14,7 +14,7 @@ const defaultNavigationOptions = {
     backgroundColor: Colors.yellow,
     borderBottomWidth: 0
   }
-}
+};
 
 export default createAppContainer(
   createStackNavigator(
@@ -25,4 +25,4 @@ export default createAppContainer(
     },
     { defaultNavigationOptions }
   )
-)
+);

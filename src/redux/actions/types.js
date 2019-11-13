@@ -1,7 +1,7 @@
 /* books */
-export const FETCH_BOOKS = 'FETCH_BOOKS'
-export const FETCH_ERROR = 'FETCH_ERROR'
-export const SHOW_BOOKS = 'SHOW_BOOKS'
-export const SET_CURRENT_SEARCH = 'SET_CURRENT_SEARCH'
-export const REFRESH_SEARCH = 'REFRESH_SEARCH'
-export const SET_REFRESH_LOADING = 'SET_REFRESH_LOADIN'
+export const FETCH_BOOKS = 'FETCH_BOOKS';
+export const FETCH_ERROR = 'FETCH_ERROR';
+export const SHOW_BOOKS = 'SHOW_BOOKS';
+export const SET_CURRENT_SEARCH = 'SET_CURRENT_SEARCH';
+export const REFRESH_SEARCH = 'REFRESH_SEARCH';
+export const SET_REFRESH_LOADING = 'SET_REFRESH_LOADIN';

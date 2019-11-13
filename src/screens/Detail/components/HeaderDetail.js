@@ -1,14 +1,18 @@
 // @flow
-import React from 'react'
-import { View } from 'react-native'
-import Stars from 'react-native-stars'
+import React from 'react';
+import { View } from 'react-native';
+import Stars from 'react-native-stars';
 
 /* helpers */
-import { Images, Colors } from '@/resources'
-import { prepareThumbnailSource, getAuthors, getPrice } from '@/utils/booksUtils'
+import { Images, Colors } from '@/resources';
+import {
+  prepareThumbnailSource,
+  getAuthors,
+  getPrice
+} from '@/utils/booksUtils';
 
 /* components */
-import { Button } from '@/components'
+import { Button } from '@/components';
 
 /* styled-components */
 import {
@@ -26,11 +30,11 @@ import {
   StyledLikeButton,
   StyledTotalPages,
   StyledStarRating
-} from '../style'
+} from '../style';
 
 type Props = {
   book: Book
-}
+};
 
 const HeaderDetail = ({ book }: Props) => (
   <StyledDetailContainer>
@@ -40,25 +44,22 @@ const HeaderDetail = ({ book }: Props) => (
       </StyledThumbnailContainer>
       <StyledContentContainer>
         <View>
-          <StyledTitle>
-            {book.volumeInfo.title}
-          </StyledTitle>
-          <StyledAuthor>
-            {getAuthors(book.volumeInfo.authors)}
-          </StyledAuthor>
+          <StyledTitle>{book.volumeInfo.title}</StyledTitle>
+          <StyledAuthor>{getAuthors(book.volumeInfo.authors)}</StyledAuthor>
         </View>
         <StyledPriceAndRating>
           <StyledTitle>
             {book.saleInfo.saleability === 'FOR_SALE'
               ? getPrice(book)
-              : 'Unavailable'
-            }
+              : 'Unavailable'}
           </StyledTitle>
           <StyledStarRating>
             <Stars
               half={false}
               default={4}
-              update={val => { console.log(val) }}
+              update={val => {
+                console.log(val);
+              }}
               spacing={3}
               count={5}
               starSize={14}
@@ -72,24 +73,19 @@ const HeaderDetail = ({ book }: Props) => (
     <StyledDetailFooter>
       <StyledPagesContainer>
         <StyledTotalPages>
-          {Boolean(book.volumeInfo.pageCount)
+          {book.volumeInfo.pageCount
             ? `${book.volumeInfo.pageCount} pages`
-            : 'Pages not informed'
-          }
+            : 'Pages not informed'}
         </StyledTotalPages>
       </StyledPagesContainer>
       <StyledPurchaseContainer>
         <Button label='Buy' small />
         <StyledLikeButton>
-          <Button
-            icon={Images.hearth}
-            backgroundColor={Colors.red}
-            small
-          />
+          <Button icon={Images.hearth} backgroundColor={Colors.red} small />
         </StyledLikeButton>
       </StyledPurchaseContainer>
     </StyledDetailFooter>
   </StyledDetailContainer>
-)
+);
 
-export default HeaderDetail
+export default HeaderDetail;

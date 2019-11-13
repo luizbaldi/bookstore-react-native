@@ -1,9 +1,9 @@
-import React from 'react'
-import { ActivityIndicator } from 'react-native'
+import React from 'react';
+import { ActivityIndicator } from 'react-native';
 
-import { Colors } from '@/resources'
+import { Colors } from '@/resources';
 
-import { Container, Label, Content, Icon } from './style'
+import { Container, Label, Content, Icon } from './style';
 
 type Props = {
   label: string,
@@ -12,10 +12,17 @@ type Props = {
   small: boolean,
   icon: string,
   backgroundColor: string
-}
+};
 
-const Button = ({ label, onPress, loading, small, icon, backgroundColor }: Props) => {
-  const iconOnly = icon && !label
+const Button = ({
+  label,
+  onPress,
+  loading,
+  small,
+  icon,
+  backgroundColor
+}: Props) => {
+  const iconOnly = icon && !label;
 
   return (
     <Container
@@ -24,18 +31,17 @@ const Button = ({ label, onPress, loading, small, icon, backgroundColor }: Props
       iconOnly={iconOnly}
       backgroundColor={backgroundColor}
     >
-      {loading
-        ? <ActivityIndicator size='small' color={Colors.white} />
-        : (
-          <Content>
-            {Boolean(icon) && <Icon source={icon} />}
-            <Label>{label}</Label>
-          </Content>
-        )
-      }
+      {loading ? (
+        <ActivityIndicator size='small' color={Colors.white} />
+      ) : (
+        <Content>
+          {Boolean(icon) && <Icon source={icon} />}
+          <Label>{label}</Label>
+        </Content>
+      )}
     </Container>
-  )
-}
+  );
+};
 
 Button.defaultProps = {
   label: '',
@@ -43,7 +49,7 @@ Button.defaultProps = {
   loading: false,
   small: false,
   icon: null,
-  backgroundColor: Colors.blue,
-}
+  backgroundColor: Colors.blue
+};
 
-export default Button
+export default Button;

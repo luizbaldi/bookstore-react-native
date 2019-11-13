@@ -1,34 +1,34 @@
 /* @flow */
 
 /* libs */
-import React from 'react'
-import { NavigationScreenProps } from 'react-navigation'
+import React from 'react';
+import { NavigationScreenProps } from 'react-navigation';
 
 /* components */
-import { Header, HeaderBackButton } from '@/components'
+import { Header, HeaderBackButton } from '@/components';
 
-import HeaderDetail from './components/HeaderDetail'
-import Description from './components/Description'
+import HeaderDetail from './components/HeaderDetail';
+import Description from './components/Description';
 
 /* styled-components */
-import { StyledContainer } from './style'
+import { StyledContainer } from './style';
 
-type Props = NavigationScreenProps
+type Props = NavigationScreenProps;
 
 const Detail = ({ navigation }: Props) => {
-  const book = navigation.getParam('book', {})
+  const book = navigation.getParam('book', {});
 
   return (
     <StyledContainer>
       <HeaderDetail book={book} />
       <Description description={book.volumeInfo.description} />
     </StyledContainer>
-  )
-}
+  );
+};
 
 Detail.navigationOptions = () => ({
   headerTitle: <Header title='Detail' />,
   headerLeft: <HeaderBackButton />
-})
+});
 
-export default Detail
+export default Detail;
