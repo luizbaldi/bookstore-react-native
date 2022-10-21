@@ -16,7 +16,7 @@
     "react": "16.9.0",
     "react-native": "0.61.4",
     "react-native-gesture-handler": "^1.5.0",
-    "react-native-reanimated": "^1.4.0",
+    "react-native-reanimated": "^2.10.0",
     "react-native-stars": "^1.1.6",
     "react-navigation": "3.8.1",
     "react-redux": "^7.1.3",
